@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface TimeLeft {
   days: number;
@@ -77,9 +78,15 @@ const Countdown = () => {
     <div className="flex flex-wrap justify-center gap-4 md:gap-8">
       {timeUnits.map((unit) => (
         <div key={unit.label} className="flex flex-col items-center">
-          <div className="bg-[#ffd9f0] text-[#f847b4] w-20 h-20 md:w-24 md:h-24 rounded-lg flex items-center justify-center text-3xl md:text-4xl font-bold shadow-md">
+          <motion.div
+            key={unit.value}
+            initial={{ scale: 0.8, opacity: 0.5 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="bg-[#ffd9f0] text-[#f847b4] w-20 h-20 md:w-24 md:h-24 rounded-lg flex items-center justify-center text-3xl md:text-4xl font-bold shadow-md"
+          >
             {unit.value < 10 ? `0${unit.value}` : unit.value}
-          </div>
+          </motion.div>
           <span className="mt-2 text-sm uppercase tracking-widest text-black/60 font-medium">
             {unit.label}
           </span>
