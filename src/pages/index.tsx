@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import { motion, Variants } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import Countdown from "../components/Countdown";
 import WebPageTitle from "@/components/WebPageTitle";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,8 +77,6 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          {/* Subtle animated overlay */}
-          <AnimatedBackground />
         </div>
 
         <motion.main
@@ -104,18 +100,12 @@ export default function Home() {
 
             {/* Coming Soon Text */}
             <motion.div variants={itemVariants} className="space-y-4 relative">
-              <div className="absolute -top-6 -left-4 md:-left-8 text-yellow-500 animate-pulse">
-                <Sparkles size={32} />
-              </div>
               <h2 className="text-2xl md:text-4xl font-light uppercase tracking-[0.1em] text-black/80">
                 We have exciting news
               </h2>
               <p className="text-black/60 max-w-md mx-auto text-lg">
                 Get ready for the ultimate beauty experience.
               </p>
-              <div className="absolute -bottom-4 -right-4 md:-right-8 text-pink-400 animate-bounce">
-                <Sparkles size={24} />
-              </div>
             </motion.div>
 
             {/* Countdown Component */}
