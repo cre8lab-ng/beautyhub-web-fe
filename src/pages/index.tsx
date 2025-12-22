@@ -28,14 +28,13 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop"
+            src="https://res.cloudinary.com/debcfaccq/image/upload/v1766438396/Launch_Banner_-_Web_q2zcr0.webp"
             alt="Beauty Background"
             fill
             className="object-cover"
             priority
           />
-          {/* Light overlay to ensure text readability while keeping the color palette */}
-          <div className="absolute inset-0 bg-white/90"></div>
+          
         </div>
 
         <main className="relative z-10 flex flex-col items-center text-center space-y-8 md:space-y-12 max-w-4xl w-full">
