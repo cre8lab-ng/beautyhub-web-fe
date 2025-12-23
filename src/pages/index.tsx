@@ -66,9 +66,8 @@ export default function Home() {
       <WebPageTitle title="Beauty Hub | Coming Soon" />
 
       <div
-        className={`${geistSans.className} ${geistMono.className} relative min-h-screen flex flex-col items-center justify-center text-black p-4 overflow-hidden`}
+        className={`${geistSans.className} ${geistMono.className} relative min-h-screen flex flex-col items-center justify-center text-black p-4 pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] overflow-hidden`}
       >
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://res.cloudinary.com/debcfaccq/image/upload/v1766438396/Launch_Banner_-_Web_q2zcr0.webp"
@@ -80,15 +79,13 @@ export default function Home() {
         </div>
 
         <motion.main
-          className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-4xl w-full"
+          className="relative z-10 flex flex-col items-center text-center space-y-6 sm:space-y-8 max-w-4xl w-full"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* Content Card with Background Overlay */}
-          <div className="bg-white/60 backdrop-blur-md p-8 md:p-12 rounded-3xl shadow-2xl w-full space-y-8 md:space-y-10">
-            {/* Header / Logo Section */}
-            <motion.div variants={itemVariants} className="relative w-64 h-24 md:w-80 md:h-32 mx-auto">
+          <div className="bg-white/60 backdrop-blur-md p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl w-full space-y-6 sm:space-y-8 md:space-y-10">
+            <motion.div variants={itemVariants} className="relative w-48 h-20 sm:w-64 sm:h-24 md:w-80 md:h-32 mx-auto">
               <Image
                 src="https://res.cloudinary.com/debcfaccq/image/upload/v1766008840/Asset_12BH_bwsukr.png"
                 alt="Beauty Hub Logo"
@@ -98,23 +95,20 @@ export default function Home() {
               />
             </motion.div>
 
-            {/* Coming Soon Text */}
             <motion.div variants={itemVariants} className="space-y-4 relative">
-              <h2 className="text-2xl md:text-4xl font-light uppercase tracking-[0.1em] text-black/80">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-light uppercase tracking-[0.1em] text-black/80">
                 We have exciting news
               </h2>
-              <p className="text-black/60 max-w-md mx-auto text-lg">
+              <p className="text-black/60 max-w-md mx-auto text-base sm:text-lg">
                 Get ready for the ultimate beauty experience.
               </p>
             </motion.div>
 
-            {/* Countdown Component */}
             <motion.div variants={itemVariants} className="w-full">
               <Countdown />
             </motion.div>
 
-            {/* Social Media Links */}
-            <motion.div variants={itemVariants} className="flex justify-center gap-6 text-black/60">
+            <motion.div variants={itemVariants} className="flex justify-center gap-4 sm:gap-6 text-black/60">
               <a
                 href="https://www.instagram.com/beautyhubco.ng/"
                 target="_blank"
@@ -122,7 +116,7 @@ export default function Home() {
                 className="hover:text-[#E1306C] transition-colors transform hover:scale-110"
                 aria-label="Instagram"
               >
-                <InstagramIcon className="w-8 h-8" />
+                <InstagramIcon className="w-6 h-6 sm:w-8 sm:h-8" />
               </a>
               <a
                 href="https://www.tiktok.com/@beautyhubco.ng"
@@ -131,7 +125,7 @@ export default function Home() {
                 className="hover:text-black transition-colors transform hover:scale-110"
                 aria-label="TikTok"
               >
-                <TikTokIcon className="w-8 h-8" />
+                <TikTokIcon className="w-6 h-6 sm:w-8 sm:h-8" />
               </a>
               <a
                 href="https://x.com/beautyhubco_ng"
@@ -140,11 +134,10 @@ export default function Home() {
                 className="hover:text-black transition-colors transform hover:scale-110"
                 aria-label="Twitter"
               >
-                <TwitterIcon className="w-8 h-8" />
+                <TwitterIcon className="w-6 h-6 sm:w-8 sm:h-8" />
               </a>
             </motion.div>
 
-            {/* Footer / Contact (Optional Minimalist Footer) */}
             <motion.footer variants={itemVariants} className="pt-4 text-sm text-black/60 font-medium">
               &copy; {new Date().getFullYear()} Beauty Hub. All rights reserved.
             </motion.footer>
