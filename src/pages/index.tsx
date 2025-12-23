@@ -100,7 +100,7 @@ export default function Home() {
                 We have exciting news
               </h2>
               <p className="text-black/60 max-w-md mx-auto text-base sm:text-lg">
-                Get ready for the ultimate beauty experience.
+                Get ready for the ultimate beauty experience.dev
               </p>
             </motion.div>
 
