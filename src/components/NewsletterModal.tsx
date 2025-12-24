@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 import Modal from './Modal';
 
 export default function NewsletterModal() {
@@ -45,12 +46,15 @@ export default function NewsletterModal() {
       <div className="flex flex-col md:flex-row min-h-[400px]">
         {/* Left Side - Content */}
         <div className="flex w-full flex-col justify-center bg-[#ffd9f0] p-8 md:w-1/2 md:p-12 relative">
-          {/* Brand/Logo Placeholder */}
-           
-          <img
-            src="https://res.cloudinary.com/debcfaccq/image/upload/v1766008840/Asset_12BH_bwsukr.png"
-            alt="Logo"
-          />
+          <div className="mb-6 flex justify-center">
+            <Image
+              src="https://res.cloudinary.com/debcfaccq/image/upload/v1766008840/Asset_12BH_bwsukr.png"
+              alt="Logo"
+              width={160}
+              height={60}
+              priority
+            />
+          </div>
 
           <div className="text-center">
             <h2 className="mb-4 text-4xl font-black uppercase leading-tight  tracking-wide">
@@ -103,10 +107,12 @@ export default function NewsletterModal() {
             <X size={20} strokeWidth={1.5} />
           </button>
           
-          <img
+          <Image
             src="https://res.cloudinary.com/debcfaccq/image/upload/v1766555101/d0c4edb3-0eac-4bb0-a727-195b4b5e8814_v0cjag.jpg"
             alt="Beauty Products"
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           {/* Overlay to ensure close button visibility if needed, though white button on image usually works */}
         </div>

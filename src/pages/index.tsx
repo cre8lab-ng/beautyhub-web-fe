@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <>
-      <WebPageTitle title="Home | Beauty Hub" />
+      <WebPageTitle title="Beauty Hub - Where Beauty Meets Trust" />
 
       <div className={`${geistSans.className} ${geistMono.className}`}>New</div>
     </>
