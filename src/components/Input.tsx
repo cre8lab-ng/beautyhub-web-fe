@@ -28,10 +28,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       placeholder-gray-500 
       outline-none 
       transition-all
+      border
+      rounded-sm
       ${fullWidth ? 'w-full' : ''}
       ${error 
         ? 'ring-2 ring-red-500' 
-        : 'focus:ring-2 focus:ring-black/10' // Changed to black/10 for better visibility on white, can be overridden
+        : 'focus:ring-2 focus:ring-black' // Changed to black/10 for better visibility on white, can be overridden
       }
       ${className}
     `;
@@ -41,7 +43,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label 
             htmlFor={props.id} 
-            className="mb-1 block text-sm font-medium text-gray-700"
+            className="mb-1 block text-sm font-medium text-black"
           >
             {label}
           </label>

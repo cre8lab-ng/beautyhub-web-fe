@@ -2,7 +2,7 @@ import React from 'react';
 import { Loader2 } from 'lucide-react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'icon';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'icon' | 'bh';
   size?: 'sm' | 'md' | 'lg' | 'icon';
   fullWidth?: boolean;
   isLoading?: boolean;
@@ -12,7 +12,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ 
     className = '', 
     variant = 'primary', 
-    size = 'md', 
+    size = 'lg', 
     fullWidth = false, 
     isLoading = false, 
     children, 
@@ -30,6 +30,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       outline: 'border-2 border-black text-black hover:bg-black hover:text-white',
       ghost: 'text-gray-500 hover:bg-black/5 hover:text-black', // Matching modal close button
       icon: 'rounded-full p-1 text-gray-500 hover:bg-black/5 hover:text-black transition-colors', // Specific for icon buttons
+      bh: 'bg-dark-pink text-white uppercase tracking-wider hover:scale-[1.02] active:scale-[0.98]',
     };
 
     // Size styles
