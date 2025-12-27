@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useFormik } from 'formik';
+import { Formik, Form, Field, FieldProps } from 'formik';
 import * as Yup from 'yup';
 import { X } from 'lucide-react';
 import Image from 'next/image';
 import Modal from './Modal';
+import Button from './Button';
+import Input from './Input';
 
 export default function NewsletterModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,19 +23,10 @@ export default function NewsletterModal() {
     setIsOpen(false);
   };
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-    },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email('Invalid email address')
-        .required('Email is required'),
-    }),
-    onSubmit: (values) => {
-      console.log('Subscribing email:', values.email);
-      setIsOpen(false);
-    },
+  const validationSchema = Yup.object({
+    email: Yup.string()
+      .email('Invalid email address')
+      .required('Email is required'),
   });
 
   return (
@@ -45,12 +38,12 @@ export default function NewsletterModal() {
     >
       <div className="flex flex-col md:flex-row min-h-[400px]">
         {/* Left Side - Content */}
-        <div className="flex w-full flex-col justify-center bg-[#ffd9f0] p-8 md:w-1/2 md:p-12 relative">
+        <div className="flex w-full flex-col justify-center bg-modal-pink p-8 md:w-1/2 md:p-12 relative">
           <div className="mb-6 flex justify-center">
             <Image
               src="https://res.cloudinary.com/debcfaccq/image/upload/v1766008840/Asset_12BH_bwsukr.png"
               alt="Logo"
-              width={160}
+              width={120}
               height={60}
               priority
             />
@@ -65,47 +58,53 @@ export default function NewsletterModal() {
             </p>
           </div>
 
-          <form onSubmit={formik.handleSubmit} className="w-full space-y-4">
-            <div className="relative">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                placeholder="EMAIL"
-                className={`w-full bg-white px-4 py-3 text-sm font-semibold text-gray-900 placeholder-gray-500 outline-none transition-all ${
-                  formik.touched.email && formik.errors.email
-                    ? 'ring-2 ring-red-500'
-                    : 'focus:ring-2 focus:ring-white/50'
-                }`}
-              />
-              {formik.touched.email && formik.errors.email ? (
-                <div className="absolute -bottom-5 left-0 text-xs font-bold text-white bg-red-500 px-1 rounded">
-                  {formik.errors.email}
-                </div>
-              ) : null}
-            </div>
-            
-            <button
-              type="submit"
-              className="w-full bg-black px-4 py-3 text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            >
-              Sign Me Up
-            </button>
-          </form>
+          <Formik
+            initialValues={{ email: '' }}
+            validationSchema={validationSchema}
+            onSubmit={(values) => {
+              console.log('Subscribing email:', values.email);
+              setIsOpen(false);
+            }}
+          >
+            {({ errors, touched, isSubmitting }) => (
+              <Form className="w-full space-y-4">
+                <Field name="email">
+                  {({ field, meta }: FieldProps) => (
+                    <Input
+                      {...field}
+                      type="email"
+                      id="email"
+                      placeholder="EMAIL"
+                      error={meta.touched && meta.error ? meta.error : undefined}
+                      className="focus:ring-white/50" // Override focus ring color for this specific pink background
+                    />
+                  )}
+                </Field>
+                
+                <Button
+                  type="submit"
+                  fullWidth
+                  isLoading={isSubmitting}
+                >
+                  Sign Me Up
+                </Button>
+              </Form>
+            )}
+          </Formik>
         </div>
 
         {/* Right Side - Image */}
         <div className="relative h-64 w-full md:h-auto md:w-1/2">
            {/* Custom Close Button on top of image */}
-           <button
+           <Button
+            variant="secondary"
+            size="icon"
             onClick={handleClose}
-            className="absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white text-black shadow-md transition-transform hover:scale-110 active:scale-95"
+            className="absolute right-4 top-4 z-20 shadow-md"
+            aria-label="Close modal"
           >
             <X size={20} strokeWidth={1.5} />
-          </button>
+          </Button>
           
           <Image
             src="https://res.cloudinary.com/debcfaccq/image/upload/v1766555101/d0c4edb3-0eac-4bb0-a727-195b4b5e8814_v0cjag.jpg"
@@ -120,3 +119,4 @@ export default function NewsletterModal() {
     </Modal>
   );
 }
+
