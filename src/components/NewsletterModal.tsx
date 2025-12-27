@@ -53,7 +53,7 @@ export default function NewsletterModal() {
             <p className="mb-3 text-sm font-medium">
               Be first to hear about what’s new.
             </p>
-            <h2 className="mb-4 text-3xl font-black uppercase leading-none tracking-wide md:text-4xl">
+            <h2 className="mb-4 text-3xl font-black uppercase leading-none tracking-wide ">
               Stay in the Know
             </h2>
 
