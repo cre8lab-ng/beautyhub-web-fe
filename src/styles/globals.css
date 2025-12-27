@@ -3,6 +3,5 @@
 @theme {
   --color-dark-pink: #f847b4;
   --color-light-pink: #ffd9f0;
-  --color-soft-pink: #fae8ff;
-  --color-modal-pink: #f0d1e4;
+  --color-soft-pink: rgb(249, 201, 217);
 }

@@ -33,16 +33,16 @@ export default function NewsletterModal() {
     <Modal 
       isOpen={isOpen} 
       onClose={handleClose} 
-      maxWidth="max-w-4xl" 
+      maxWidth="max-w-[780px]" 
       showCloseButton={false}
     >
-      <div className="flex flex-col md:flex-row min-h-[400px]">
+      <div className="flex flex-col md:flex-row md:h-[540px]">
         {/* Left Side - Content */}
-        <div className="flex w-full flex-col justify-center bg-modal-pink p-8 md:w-1/2 md:p-12 relative">
+        <div className="flex w-full flex-col justify-center bg-soft-pink p-8 md:w-1/2 md:p-12 relative">
           <div className="mb-6 flex justify-center">
             <Image
               src="https://res.cloudinary.com/debcfaccq/image/upload/v1766008840/Asset_12BH_bwsukr.png"
-              alt="Logo"
+              alt="Beauty Hub Logo"
               width={120}
               height={60}
               priority
@@ -107,8 +107,8 @@ export default function NewsletterModal() {
           </Button>
           
           <Image
-            src="https://res.cloudinary.com/debcfaccq/image/upload/v1766555101/d0c4edb3-0eac-4bb0-a727-195b4b5e8814_v0cjag.jpg"
-            alt="Beauty Products"
+            src="https://res.cloudinary.com/debcfaccq/image/upload/v1766830191/aa6715ee-4c18-42a2-87cf-d06720bc39a3_i16wpr.jpg"
+            alt="Newsletter Image"
             fill
             className="object-cover"
             priority

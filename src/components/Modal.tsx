@@ -49,7 +49,7 @@ export default function Modal({
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className={`relative w-full ${maxWidth} overflow-hidden rounded-2xl bg-white shadow-2xl ${className}`}
+            className={`relative w-full ${maxWidth} overflow-hidden rounded-sm bg-white shadow-2xl ${className}`}
           >
             {showCloseButton && (
               <button
