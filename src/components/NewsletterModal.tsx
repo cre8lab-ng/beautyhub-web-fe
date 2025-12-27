@@ -36,7 +36,7 @@ export default function NewsletterModal() {
       maxWidth="max-w-[780px]"
       showCloseButton={false}
     >
-      <div className="flex flex-col md:flex-row md:h-[540px]">
+      <div className="flex flex-col md:flex-row md:h-135">
         {/* Left Side - Content */}
         <div className="flex w-full flex-col justify-center bg-soft-pink  md:w-1/2 md:p-12 relative">
           <div className="mb-6 flex justify-center">

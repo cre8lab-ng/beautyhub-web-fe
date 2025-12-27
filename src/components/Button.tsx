@@ -1,5 +1,6 @@
 import React from 'react';
 import { Loader2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'icon' | 'bh';
@@ -41,23 +42,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       icon: 'h-8 w-8', // Fixed size for icon buttons
     };
 
-    // Width styles
-    const widthStyles = fullWidth ? 'w-full' : '';
-
-    // Combine styles
-    // Note: In a real project with more dependencies, usage of clsx or tailwind-merge is recommended
-    const combinedClassName = `
-      ${baseStyles} 
-      ${variants[variant]} 
-      ${size === 'icon' ? sizes.icon : sizes[size]} 
-      ${widthStyles} 
-      ${className}
-    `.trim();
-
     return (
       <button
         ref={ref}
-        className={combinedClassName}
+        className={cn(
+          baseStyles,
+          variants[variant],
+          size === 'icon' ? sizes.icon : sizes[size],
+          fullWidth && 'w-full',
+          className
+        )}
         disabled={isLoading || disabled}
         {...props}
       >
