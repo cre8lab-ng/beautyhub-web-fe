@@ -50,14 +50,14 @@ export default function NewsletterModal() {
           </div>
 
           <div className="text-center">
-            <p className="text-sm font-medium">
+            <p className="mb-3 text-sm font-medium">
               Be first to hear about what’s new.
             </p>
-            <h2 className="mb-4 text-3xl font-black uppercase leading-tight  tracking-wide">
+            <h2 className="mb-4 text-3xl font-black uppercase leading-none tracking-wide md:text-4xl">
               Stay in the Know
             </h2>
 
-            <p className="mb-8  text-sm font-medium">
+            <p className="mb-8 text-sm font-medium leading-relaxed">
               Major sales? New drops?? Get it all, straight to your inbox
             </p>
           </div>

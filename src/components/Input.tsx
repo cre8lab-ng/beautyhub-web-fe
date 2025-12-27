@@ -25,15 +25,15 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       text-sm 
       font-semibold 
       text-gray-900 
-      placeholder-gray-500 
+      placeholder-black
       outline-none 
       transition-all
       border
       rounded-sm
       ${fullWidth ? 'w-full' : ''}
       ${error 
-        ? 'ring-2 ring-red-500' 
-        : 'focus:ring-2 focus:ring-black' // Changed to black/10 for better visibility on white, can be overridden
+        ? 'ring-2 ring-red-500 border-red-500' 
+        : 'border-gray-300 focus:ring-2 focus:ring-black'
       }
       ${className}
     `;
@@ -57,7 +57,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         />
         
         {error && (
-          <div className="absolute -bottom-5 left-0 text-xs font-bold text-white bg-red-500 px-1 rounded z-10">
+          <div className="mt-1  font-bold text-red-500">
             {error}
           </div>
         )}
